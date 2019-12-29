@@ -24,7 +24,7 @@ void mult(int** matrix, int* vector, int* res, int N, int M, int parall) {
 					
 			}
 			end_paral = omp_get_wtime();
-			std::cout /*<< "Thread used: " << p << ", time on rows spent:"*/ << (end_paral - start_paral) << std::endl;
+			std::cout << "Thread used: " << p << ",  time on rows spent:" << (end_paral - start_paral) << std::endl;
 		}
 		for (int i = 0; i < N; i++)
 			res[i] = 0;
@@ -44,7 +44,7 @@ void mult(int** matrix, int* vector, int* res, int N, int M, int parall) {
 				}
 			}
 			end_paral = omp_get_wtime();
-			std::cout /*<< "Thread used: " << p << ", time on columns spent:"*/ << (end_paral - start_paral) << std::endl;
+			std::cout << "Thread used: " << p << ",  time on columns spent:" << (end_paral - start_paral) << std::endl;
 		}
 		for (int i = 0; i < N; i++)
 			res[i] = 0;
@@ -73,7 +73,7 @@ void mult(int** matrix, int* vector, int* res, int N, int M, int parall) {
 			}
 
 			end_paral = omp_get_wtime();
-			std::cout /*<< "Thread used: " << p << ", time on block spent:"*/ << (end_paral - start_paral) << std::endl;
+			std::cout << "Thread used: " << p << ",  time on block spent:" << (end_paral - start_paral) << std::endl;
 		}
 		
 }
@@ -87,7 +87,7 @@ int main() {
 
 	
 	for (int i = 1; i <= 5; i++) {
-		std::cout << "Input N, M:  " << std::endl;
+		//std::cout << "Input N, M:  " << std::endl;
 		//std::cin >> N >> M;
 		std::cout << std::endl;
 		N = 1000 * i;
@@ -113,9 +113,10 @@ int main() {
 		}
 
 		double end_gen = clock();
+
+		std::cout << std::endl << "N= " << N << " M= " << M << std::endl;
 		std::cout << "Generation time: " << (end_gen - start_gen) / CLK_TCK << std::endl;
 		
-		std::cout << std:: endl << "N= " << N << " M= " << M << std::endl;
 		mult(matrix, vect, res, N, M, 1);//By rows 
 		std::cout << std::endl;
 		mult(matrix, vect, res, N, M, 2);//By columns
