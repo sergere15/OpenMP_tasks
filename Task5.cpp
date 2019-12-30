@@ -63,19 +63,19 @@ int find_substr(std::string& str, std::string& sub_str, int* vec, bool parall) {
 int main() {
 	std::string str;
 	std::string sub_str;
-	//int len1 = 10000000;
-	//int len2 = 2000;
-	std::cin >> str >> sub_str;
-	//double start_gen = clock();
-	//char* str1 = new char[len1];
-	//char* str2 = new char[len2];
-	//gen_random(str1, len1);
-	//gen_random(str2, len2);
-	//str = str1;
-	//sub_str = str2;
+	int len1 = 10000000;
+	int len2 = 2000;
+	//std::cin >> str >> sub_str;
+	double start_gen = clock();
+	char* str1 = new char[len1];
+	char* str2 = new char[len2];
+	gen_random(str1, len1);
+	gen_random(str2, len2);
+	str = str1;
+	sub_str = str2;
 	int* vec = new int[str.length()-sub_str.length() + 1];
 	double end_gen = clock();
-	//std::cout << "Generation time: " << (end_gen - start_gen) / CLK_TCK << std::endl;
+	std::cout << "Generation time: " << (end_gen - start_gen) / CLK_TCK << std::endl;
 
 	int pos;
 
