@@ -137,8 +137,7 @@ int main() {
 		std::cout << std::endl;
 		mult_martices(matrix1, matrix2, res, M, N, K, 1);//By Tape 
 		std::cout << std::endl;
-
-		mult_martices(matrix1, matrix2, res, M, N, K, 3);//By blocks 
+		mult_martices(matrix1, matrix2, res, M, N, K, 2);//By blocks 
 		
 	}
 
